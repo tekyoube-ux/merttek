@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@keyframes crt-scan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 400px;
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.35), inset 0 0 15px rgba(0, 242, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.6), inset 0 0 20px rgba(0, 242, 255, 0.2);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.8), 0 0 16px rgba(74, 222, 128, 0.4);
+  }
+  50% {
+    opacity: 0.45;
+    text-shadow: none;
+  }
+}
+
+body {
+  background-color: #020708;
+  color: #e5e5e5;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  overflow-x: hidden;
+}
+
+/* Symbolics.com CRT Scanline Background */
+.symbolics-bg {
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(0, 242, 255, 0.22) 0%, rgba(0, 255, 136, 0.08) 35%, transparent 70%),
+    repeating-linear-gradient(0deg, #01080a 0px, #01080a 2px, #002224 2px, #002224 4px);
+  background-size: 100% 100%, 100% 4px;
+}
+
+.symbolics-card {
+  border: 1.5px solid #00f2ff;
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.35), inset 0 0 15px rgba(0, 242, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.symbolics-card:hover {
+  border-color: #38f8ff;
+  box-shadow: 0 0 30px rgba(0, 242, 255, 0.7), inset 0 0 22px rgba(0, 242, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.symbolics-title {
+  color: #00f2ff;
+  text-shadow: 0 0 12px #00f2ff, 0 0 25px rgba(0, 242, 255, 0.8), 0 0 45px rgba(0, 242, 255, 0.4);
+}
+
+::selection {
+  background: #00f2ff;
+  color: #000;
+}
+
+.terminal-output p, .terminal-output div {
+  word-break: break-word;
+}
+
+/* Hide Netlify badge */
+[data-netlify-badge],
+#netlify-badge,
+a[href*="netlify.com"][style*="position"],
+.nf-badge,
+iframe[src*="netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
