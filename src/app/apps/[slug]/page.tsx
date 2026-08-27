@@ -39,7 +39,7 @@ export default async function AppDetailPage({ params }: PageProps) {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00f2ff] shadow-[0_0_10px_#00f2ff]"></span>
             </span>
             <span className="text-xs tracking-wider text-cyan-300/70 uppercase">
-              {app.platform} • {app.status}
+              {isExtension ? "BROWSER EXTENSION" : app.platform} • {app.status}
             </span>
           </div>
           <span className="rounded-full border border-pink-500/40 bg-pink-950/30 px-3 py-0.5 text-xs font-semibold text-pink-400">
@@ -64,13 +64,16 @@ export default async function AppDetailPage({ params }: PageProps) {
               <p className="mt-2 text-sm leading-relaxed text-zinc-300">
                 {app.longDescription || app.description}
               </p>
+              {app.slug === "ig-chat-cleaner" && (
+                <p className="mt-3 text-xs font-semibold text-green-400">
+                  ✓ Instagram giriş bilgisi istemez
+                </p>
+              )}
             </div>
           </div>
 
-
           {/* Information & Requirements Grid */}
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {/* Information Box */}
             <div className="rounded-lg border border-cyan-500/30 bg-black/40 p-4">
               <h3 className="text-xs font-bold tracking-wider text-cyan-400 mb-3 uppercase">
                 INFORMATION
@@ -95,7 +98,6 @@ export default async function AppDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Requirements Box */}
             <div className="rounded-lg border border-cyan-500/30 bg-black/40 p-4">
               <h3 className="text-xs font-bold tracking-wider text-cyan-400 mb-3 uppercase">
                 REQUIREMENTS
@@ -111,7 +113,7 @@ export default async function AppDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Chrome & Brave Installation Guide (Tarayıcı Eklentileri İçin) */}
+          {/* Chrome & Brave Installation Guide */}
           {isExtension && (
             <div className="rounded-lg border border-[#00f2ff]/50 bg-cyan-950/20 p-4 shadow-[0_0_15px_rgba(0,242,255,0.15)]">
               <h3 className="text-xs font-bold tracking-wider text-cyan-300 mb-2.5 flex items-center gap-2">
@@ -139,19 +141,21 @@ export default async function AppDetailPage({ params }: PageProps) {
           )}
 
           {/* Features */}
-          <div className="rounded-lg border border-cyan-500/30 bg-black/40 p-4">
-            <h3 className="text-xs font-bold tracking-wider text-cyan-400 mb-3 uppercase">
-              FEATURES & CAPABILITIES
-            </h3>
-            <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
-              {app.features.map((feature) => (
-                <li key={feature} className="text-xs text-zinc-300 flex items-start gap-2">
-                  <span className="text-cyan-400 font-bold">&gt;</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {app.features && app.features.length > 0 && (
+            <div className="rounded-lg border border-cyan-500/30 bg-black/40 p-4">
+              <h3 className="text-xs font-bold tracking-wider text-cyan-400 mb-3 uppercase">
+                FEATURES & CAPABILITIES
+              </h3>
+              <ul className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                {app.features.map((feature) => (
+                  <li key={feature} className="text-xs text-zinc-300 flex items-start gap-2">
+                    <span className="text-cyan-400 font-bold">&gt;</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -159,7 +163,7 @@ export default async function AppDetailPage({ params }: PageProps) {
               href={app.downloadUrl}
               className="rounded bg-[#8a2be2] px-6 py-2.5 text-xs font-bold text-white shadow-[0_0_15px_rgba(138,43,226,0.6)] transition-all hover:bg-[#9d35ff] hover:shadow-[0_0_25px_rgba(157,53,255,0.9)]"
             >
-              DOWNLOAD v{app.version}
+              {isExtension ? "DOWNLOAD / INSTALL" : "DOWNLOAD"} v{app.version}
             </a>
             <Link
               href="/apps"
