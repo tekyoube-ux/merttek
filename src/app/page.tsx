@@ -28,11 +28,11 @@ export default function Home() {
           </div>
 
           {/* 4 Cards Grid */}
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 flex-1">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 flex-1 items-start content-start">
             {apps.slice(0, 4).map((app) => (
               <div
                 key={app.id}
-                className="symbolics-card flex flex-col justify-between rounded-xl bg-[#030a0d]/90 p-4 backdrop-blur-sm"
+                className="symbolics-card flex flex-col rounded-xl bg-[#030a0d]/90 p-4 backdrop-blur-sm"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
