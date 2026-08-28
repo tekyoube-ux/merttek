@@ -69,13 +69,6 @@ export default function ContactClient() {
                 </div>
               </div>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-2">
-              <QuickLink href="/" label="HOME" />
-              <QuickLink href="/apps" label="APPLICATIONS" />
-              <QuickLink href="/extensions" label="EXTENSIONS" />
-              <QuickLink href="/about" label="ABOUT" />
-            </div>
           </div>
         )}
       </div>

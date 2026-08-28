@@ -90,13 +90,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Quick Navigation Links */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-            <QuickLink href="/apps" label="ALL APPLICATIONS" />
-            <QuickLink href="/extensions" label="EXTENSIONS" />
-            <QuickLink href="/about" label="ABOUT" />
-            <QuickLink href="/contact" label="CONTACT" />
-          </div>
+
         </section>
       )}
     </div>
