@@ -8,7 +8,6 @@ export default function Footer() {
         <Link href="/apps" className="transition-colors hover:text-white">apps</Link>
         <Link href="/extensions" className="transition-colors hover:text-white">extensions</Link>
         <Link href="/about" className="transition-colors hover:text-white">about</Link>
-        <Link href="/contact" className="transition-colors hover:text-white">contact</Link>
       </div>
     </footer>
   );

@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import BootScreen from "@/components/BootScreen";
-import { apps } from "@/data/apps";
+import { useApps } from "@/hooks/useApps";
 
 export default function Home() {
   const [booted, setBooted] = useState(false);
+  const { apps } = useApps();
+
 
   return (
     <div className="mx-auto max-w-5xl flex flex-col" style={{ height: "calc(100vh - 120px)" }}>
