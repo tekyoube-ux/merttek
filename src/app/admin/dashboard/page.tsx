@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { collection, getDocs, doc, setDoc, deleteDoc } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
+import { apps as staticApps } from "@/data/apps";
 
 type App = {
   id: string;
@@ -64,6 +65,27 @@ export default function AdminDashboard() {
     setLoading(false);
   }
 
+  async function handleSeedStatic() {
+    if (!confirm("Mevcut tüm statik uygulamaları Firestore'a yükle?")) return;
+    setSaving(true);
+    setMessage("");
+    try {
+      for (const app of staticApps) {
+        await setDoc(doc(db, "apps", app.slug), {
+          ...app,
+          features: app.features.join("\n"),
+          requirements: app.requirements.join("\n"),
+        });
+      }
+      setMessage("✅ Tüm uygulamalar yüklendi!");
+      fetchApps();
+    } catch {
+      setMessage("❌ Hata oluştu.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
   async function handleSave() {
     if (!selected) return;
     setSaving(true);
@@ -107,12 +129,21 @@ export default function AdminDashboard() {
           </span>
           <span className="text-sm font-black tracking-widest text-white uppercase">Admin Dashboard</span>
         </div>
-        <button
-          onClick={() => signOut(auth).then(() => router.push("/admin"))}
-          className="rounded border border-red-500/40 px-3 py-1 text-xs text-red-400 hover:bg-red-500/10"
-        >
-          ÇIKIŞ
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={handleSeedStatic}
+            disabled={saving}
+            className="rounded border border-cyan-500/40 px-3 py-1 text-xs text-cyan-400 hover:bg-cyan-500/10 disabled:opacity-50"
+          >
+            MEVCUT UYGULAMALARI YÜKLE
+          </button>
+          <button
+            onClick={() => signOut(auth).then(() => router.push("/admin"))}
+            className="rounded border border-red-500/40 px-3 py-1 text-xs text-red-400 hover:bg-red-500/10"
+          >
+            ÇIKIŞ
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
