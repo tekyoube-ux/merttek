@@ -15,6 +15,7 @@ export const apps: AppInfo[] = [
       "IG Chat Cleaner, Instagram web arayüzü üzerinden mesaj kutunuzdaki sohbetleri otomatik olarak siler. Maksimum silme limiti, ayarlanabilir çalışma hızı, DOM güvenliği ve canlı işlem günlüğü desteği sunar.",
     icon: "/apps/ig-chat-cleaner/icon.png",
     screenshots: ["/apps/ig-chat-cleaner/screenshot.png"],
+    highlight: "✓ Instagram giriş bilgisi istemez",
     features: [
       "Toplu Instagram DM silme",
       "Ayarlanabilir çalışma hızı (Yavaş / Normal / Hızlı)",

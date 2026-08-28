@@ -12,6 +12,7 @@ export type AppInfo = {
   version: string;
   description: string;
   longDescription?: string;
+  highlight?: string;
   icon: string;
   screenshots: string[];
   features: string[];

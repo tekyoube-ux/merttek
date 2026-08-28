@@ -19,6 +19,7 @@ function toAppInfo(id: string, data: Record<string, unknown>): AppInfo {
     version: (data.version as string) || "1.0.0",
     description: (data.description as string) || "",
     longDescription: (data.longDescription as string) || "",
+    highlight: (data.highlight as string) || "",
     icon: (data.icon as string) || "",
     screenshots: [],
     features: typeof data.features === "string"

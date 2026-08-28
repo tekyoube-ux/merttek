@@ -13,6 +13,7 @@ type App = {
   slug: string;
   description: string;
   longDescription: string;
+  highlight: string;
   version: string;
   platform: string;
   category: string;
@@ -30,6 +31,7 @@ const emptyApp: App = {
   slug: "",
   description: "",
   longDescription: "",
+  highlight: "",
   version: "",
   platform: "Windows",
   category: "windows",
@@ -210,6 +212,7 @@ export default function AdminDashboard() {
 
               <Field label="Kısa Açıklama" value={selected.description} onChange={(v) => setSelected({ ...selected, description: v })} textarea />
               <Field label="Uzun Açıklama" value={selected.longDescription} onChange={(v) => setSelected({ ...selected, longDescription: v })} textarea />
+              <Field label="Öne Çıkan Bilgi (yeşil yanıp sönen çerçeve)" value={selected.highlight || ""} onChange={(v) => setSelected({ ...selected, highlight: v })} placeholder="✓ Instagram giriş bilgisi istemez" />
               <Field label="Özellikler (her satıra bir tane)" value={selected.features} onChange={(v) => setSelected({ ...selected, features: v })} textarea placeholder="Toplu silme&#10;Hızlı erişim&#10;..." />
               <Field label="Gereksinimler (her satıra bir tane)" value={selected.requirements} onChange={(v) => setSelected({ ...selected, requirements: v })} textarea placeholder="Windows 10+&#10;4 GB RAM&#10;..." />
 
