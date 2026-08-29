@@ -8,11 +8,11 @@ export default function Navbar() {
         <Logo />
 
         <nav className="hidden items-center gap-6 text-xs font-mono font-medium text-cyan-200/70 md:flex">
-          <Link href="/" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">home</Link>
-          <Link href="/apps" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">apps</Link>
-          <Link href="/extensions" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">extensions</Link>
-          <Link href="/about" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">about</Link>
-          <Link href="/contact" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">contact</Link>
+          <Link href="/" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">anasayfa</Link>
+          <Link href="/apps" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">uygulamalar</Link>
+          <Link href="/extensions" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">eklentiler</Link>
+          <Link href="/about" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">hakkında</Link>
+          <Link href="/contact" className="transition-all hover:text-cyan-300 hover:drop-shadow-[0_0_8px_#00f2ff]">iletişim</Link>
         </nav>
       </div>
     </header>
